@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fontes Externas</title>
+    <style>
+        @font-face {
+            font-family: 'Courier New';
+            src: url('https://example.com/fonts/courier-new.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+
+            /*
+            Tipos de fromat()
+            -opentype('otf')
+            -truetype('ttf')
+            -embedded-opentype('eot')
+            -embedded-opentype('woff')
+            -truetype-aat
+            -svg('svg')
+            */
+        }
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 2em;
+            color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Título</h1>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque nam numquam optio accusantium quaerat minus corrupti reiciendis ipsum saepe itaque tempore quasi, iste asperiores perferendis, non voluptatem modi perspiciatis debitis?</p>
+</body>
+</html>

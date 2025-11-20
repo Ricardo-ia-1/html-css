@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #ffe0ec, #ffccd5);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: justify;
+  text-align: center;
+}
+
+.envelope {
+  background: #fff0f5;
+  border: 3px dashed #ff8da1;
+  padding: 40px;
+  border-radius: 15px;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  animation: pulse 2s infinite;
+}
+
+.flower {
+  width: 0;
+  height: 0;
+}
+
+.frase {
+  font-size: 1.5rem;
+  color: #b30059;
+}
+
+.mensagem {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.mensagem input {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 10px;
+}
+
+.mensagem button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: #ff4d88;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.thays {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #800040;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.thays.show {
+  opacity: 1;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}

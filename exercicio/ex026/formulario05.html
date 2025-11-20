@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formúlario</title>
+</head>
+<body>
+    <h1>Exemplos de formulário</h1>
+    <form action="recebe_dados.php" method="get" autocomplete="on">
+        <p>
+            <label for="icor">Cor:</label>
+            <input type="color" name="cor" id="icor" value="#oooooo" required>
+        </p>
+
+        <p>
+            <label for="inivel">Nível de Satisfação: </label>
+            <input type="range" name="nivel" id="inivel" min="0" max="10" step="1" value="0" required>
+        </p>
+        <p>
+            <label for="ifoto">Fotos de perfil: </label>
+            <input type="file" name="foto" id="ifoto" accept="image/*" multiple required>
+        </p>
+        <p>
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Limpar">
+        </p>
+    </form>
+</body>
+</html>

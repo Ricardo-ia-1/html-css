@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para minha garotinha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>minha querida Thatazinha</h1>
+        <p id="romantic-message">
+            Meu amor, cada momento ao seu lado é um presente que a vida me deu. 
+            Você ilumina meus dias, aquece meu coração e me faz acreditar que o amor verdadeiro existe. 
+            Obrigado por ser minha inspiração, minha parceira e minha melhor amiga. 
+            Eu te amo mais do que palavras podem expressar!
+        </p>
+        <button id="showMore">Mostrar mais</button>
+    </div>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffb6c1 0%, #ffe4e1 100%);
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: rgba(255,255,255,0.85);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(255, 105, 180, 0.2);
+            padding: 40px 30px;
+            max-width: 400px;
+            text-align: center;
+        }
+        h1 {
+            color: #e75480;
+            margin-bottom: 20px;
+            font-family: 'Brush Script MT', cursive, sans-serif;
+            font-size: 2.5em;
+        }
+        #romantic-message {
+            color: #c2185b;
+            font-size: 1.1em;
+            margin-bottom: 25px;
+        }
+        button {
+            background: linear-gradient(90deg, #e75480 0%, #ffb6c1 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-size: 1em;
+            cursor: pointer;
+                }
+        button:hover {
+            background: linear-gradient(90deg, #ffb6c1 0%, #e75480 100%);
+        }
+    </style>
+
+    <script>
+        document.getElementById('showMore').addEventListener('click', function() {
+            document.getElementById('romantic-message').innerHTML += "<br><br>Quero estar ao seu lado em todos os momentos, compartilhando sonhos, sorrisos e muito amor. Você é meu tudo!";
+            this.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

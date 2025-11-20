@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabelas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 600px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        th {
+            font-size: 1.1em;
+            letter-spacing: 1px;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 10px;
+        }
+
+        .area {
+            font-weight: bold;
+        }
+        .media {
+            font-weight: bold;
+            font-size: 1.1em;
+            text-align: left;
+        }
+        .disciplina {
+            background-color: rgb(129, 129, 129);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exercício de tabelas </h1>
+
+    <table>
+        <colgroup>
+            <col class="area">
+            <col class="disciplina">
+            <col class="nota 1">
+            <col class="nota2">
+            <col class="media">
+        </colgroup>
+        <caption> bloco de notas</caption>
+        <tr>
+            <th class="area">Área</th>
+            <th class="disciplina">Disciplina</th>
+            <th class="nota 1">Nota 1</th>
+            <th class="nota2">Nota 2</th>
+            <th class="media">Média</th>
+        </tr>
+        <tr>
+            <td rowspan="3">Linguagens e Códigos</td>
+            <td>Português</td>
+            <td>7.5</td>
+            <td>8.0</td>
+            <td rowspan="3" class="media">7.75</td>
+        </tr>
+        <tr>
+            <td>Inglês</td>
+            <td>6.0</td>
+            <td>7.0</td>
+        </tr>
+        <tr>
+            <td>Programação</td>
+            <td>8.5</td>
+            <td>9.0</td>
+        </tr>
+        <tr>
+            <td rowspan="2">Matemática e suas Tecnologias</td>
+            <td>Matemática Básica</td>
+            <td>9.0</td>
+            <td>8.5</td>
+            <td rowspan="2" class="media">8.75</td>
+        </tr>
+        <tr>
+            <td>Lógica de Programação</td>
+            <td>7.0</td>
+            <td>6.5</td>
+        </tr>
+    </table>
+</body>
+</html>

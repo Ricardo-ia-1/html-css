@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        table {
+            width: 400px;
+            height: 400px;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center; /* Alinhamento horizontal */
+            vertical-align: middle; /* Alinhamento vertical */
+        }
+    </style>
+</head>
+<body>
+    <h1>Minha primeira tabela</h1>
+    <p>Esta é uma tabela simples com três colunas: Nome, Idade e Cidade.</p>
+    <!--
+         HIERARQUIA DE TABELAS ( simples)
+         TABLE: tabela
+             TR: linha da tabela
+             TH: cabeçalho da tabela
+             TD: célula da tabela
+    
+    -->
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Cidade</th>
+        </tr>
+        <tr>
+            <td>João</td>
+            <td>25</td>
+            <td><a href="#">São Paulo</a></td>
+        </tr>
+        <tr>
+            <td>Maria</td>
+            <td>30</td>
+            <td>Rio de Janeiro</td>
+        </tr>
+        <tr>
+            <td>Ana</td>
+            <td>22</td>
+            <td>Belo Horizonte</td>
+        </tr>
+    </table>
+</body>
+</html>

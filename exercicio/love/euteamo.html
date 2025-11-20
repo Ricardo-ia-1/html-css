@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Para Meu Amor ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffb6c1 0%, #ffe4e1 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe Script', cursive, sans-serif;
+            overflow: hidden;
+        }
+        .heart {
+            width: 160px;
+            height: 140px;
+            position: relative;
+            cursor: pointer;
+            animation: pulse 1.5s infinite;
+        }
+        .heart:before,
+        .heart:after {
+            content: "";
+            position: absolute;
+            left: 80px;
+            top: 0;
+            width: 80px;
+            height: 130px;
+            background: #ff3366;
+            border-radius: 80px 80px 0 0;
+            transform: rotate(-45deg);
+            box-shadow: 0 4px 20px #ffb6c1;
+        }
+        .heart:after {
+            left: 0;
+            transform: rotate(45deg);
+        }
+        @keyframes pulse {
+            0% { transform: scale(1);}
+            50% { transform: scale(1.1);}
+            100% { transform: scale(1);}
+        }
+        .message {
+            margin-top: 40px;
+            font-size: 2rem;
+            color: #d72660;
+            text-align: center;
+            text-shadow: 1px 1px 8px #fff;
+            max-width: 90vw;
+        }
+    </style>
+</head>
+<body>
+    <div class="heart" id="heart"></div>
+    <div class="message" id="msg">Toque no coração 💖</div>
+    <script>
+        // Mensagens românticas
+        const mensagens = [
+            "Eu te amo mais do que palavras podem dizer!",
+            "Você é meu sonho realizado.",
+            "Cada momento com você é mágico.",
+            "Meu coração é todo seu.",
+            "Você faz minha vida mais colorida!",
+            "Te amo para sempre! 💘"
+        ];
+        const msg = document.getElementById('msg');
+        const heart = document.getElementById('heart');
+
+        // Troca mensagem ao toque/click
+        heart.addEventListener('touchstart', showLove);
+        heart.addEventListener('click', showLove);
+
+        function showLove() {
+            const idx = Math.floor(Math.random() * mensagens.length);
+            msg.textContent = mensagens[idx];
+            heart.style.animation = "pulse 0.3s";
+            setTimeout(() => heart.style.animation = "", 300);
+        }
+
+        // Efeito de movimento suave na tela
+        let angle = 0;
+        function animateBackground() {
+            angle += 0.5;
+            const x = Math.sin(angle * Math.PI / 180) * 10;
+            const y = Math.cos(angle * Math.PI / 180) * 10;
+            document.body.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
+            requestAnimationFrame(animateBackground);
+        }
+        animateBackground();
+    </script>
+</body>
+</html>

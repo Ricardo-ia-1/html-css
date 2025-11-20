@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulário de teste com validação e usabilidade melhorada">
+    <title>Formulário - Versão Aprimorada</title>
+    <style>
+        :root {
+            /* Cores principais */
+            --bg: #f4f7fb;
+            --card: #ffffff;
+            --accent: #0b74de;
+            --accent-600: #075fb8;
+            --muted: #6b7280;
+            --danger: #e11d48;
+            --good: #0ea5a4;
+            
+            /* Layout */
+            --radius: 10px;
+            --focus-shadow: 0 0 0 3px rgba(11, 116, 222, 0.14);
+            
+            /* Tipografia */
+            --font-main: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            
+            /* Sistema */
+            color-scheme: light;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            min-height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:
+                linear-gradient(135deg, rgba(11,116,222,0.06), rgba(3,7,18,0.02)),
+                var(--bg);
+            padding:2rem;
+            color:#111827;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+        }
+        .container{
+            width:100%;
+            max-width:520px;
+            background:var(--card);
+            border-radius:var(--radius);
+            padding:1.6rem;
+            box-shadow:0 10px 30px rgba(2,6,23,0.08);
+            border:1px solid rgba(2,6,23,0.04);
+        }
+        header{margin-bottom:0.6rem}
+        h1{font-size:1.25rem;margin:0 0 .25rem}
+        p.lead{margin:0;color:var(--muted);font-size:.95rem}
+        form{margin-top:1rem}
+        fieldset{border:0;padding:0;margin:0}
+        .row{display:grid;gap:.9rem}
+        label{display:block;font-weight:600;font-size:.95rem;margin-bottom:.35rem}
+        .control{
+            display:flex;
+            align-items:center;
+            gap:.5rem;
+            background:#fbfdff;
+            border:1px solid #e6eefb;
+            padding:.45rem .6rem;
+            border-radius:10px;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="email"]{
+            border:0;
+            outline:0;
+            font-size:1rem;
+            background:transparent;
+            width:100%;
+            color:inherit;
+        }
+        .control:focus-within{box-shadow:var(--focus);border-color:var(--accent-600)}
+        .actions{display:flex;gap:.5rem;margin-top:1rem;flex-wrap:wrap}
+        button, input[type="submit"], input[type="reset"]{
+            border:0;padding:.6rem .9rem;border-radius:8px;font-weight:600;cursor:pointer;
+        }
+        .btn-primary{background:var(--accent);color:#fff}
+        .btn-primary[disabled]{opacity:.6;cursor:not-allowed}
+        .btn-secondary{background:#eef2f7;color:var(--muted)}
+        .muted{color:var(--muted);font-size:.88rem;margin-top:.5rem}
+        .help{font-size:.82rem;color:var(--muted)}
+        .pw-wrap{position:relative;display:grid;gap:.4rem}
+        .toggle-pw{
+            background:transparent;border:0;color:var(--accent);font-weight:600;cursor:pointer;
+            padding:.25rem .4rem;border-radius:6px;
+        }
+        .toggle-pw:focus{outline:2px solid transparent;box-shadow:var(--focus)}
+        .meter{
+            height:10px;border-radius:999px;background:#eef2f7;margin-top:.25rem;overflow:hidden;
+        }
+        .meter > span{
+            display:block;height:100%;width:0;background:linear-gradient(90deg,#ef4444,#f97316,#0ea5a4);transition:width .18s, background .18s;
+        }
+        .reqs{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.25rem;font-size:.82rem}
+        .req{display:inline-flex;align-items:center;gap:.4rem;color:var(--muted)}
+        .req.ok{color:var(--good);font-weight:600}
+        .req .dot{width:10px;height:10px;border-radius:50%;background:#e6eefb}
+        .req.ok .dot{background:var(--good)}
+        .error{color:var(--danger);font-size:.9rem;margin-top:.25rem}
+        .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+        input:invalid{box-shadow:0 0 0 3px rgba(226,46,46,0.06)}
+        @media (max-width:520px){
+            .container{padding:1rem}
+        }
+    </style>
+</head>
+<body>
+    <div class="container" role="main">
+        <header>
+            <h1>Teste de formulário</h1>
+            <p class="lead">Preencha os dados para continuar</p>
+        </header>
+
+        <form id="form" action="recebe_dados.php" method="post" autocomplete="on" novalidate>
+            <fieldset class="row">
+                <div>
+                    <label for="iuso">Usuário</label>
+                    <div class="control">
+                        <input
+                            type="text"
+                            name="usu"
+                            id="iuso"
+                            placeholder="Digite seu usuário (5–15 caracteres)"
+                            required
+                            minlength="5"
+                            maxlength="15"
+                            pattern="[A-Za-z0-9_]{5,15}"
+                            title="Use 5–15 letras, números ou underscore"
+                            aria-describedby="userHelp userError"
+                            inputmode="text"
+                            autocomplete="username"
+                        />
+                    </div>
+                    <div id="userHelp" class="help">Permitidos: letras, números e underscore (_).</div>
+                    <div id="userError" class="error" aria-live="polite"></div>
+                </div>
+
+                <div>
+                    <label for="isenha">Senha</label>
+                    <div class="pw-wrap" aria-describedby="pwHelp pwStrength">
+                        <div class="control">
+                            <input
+                                type="password"
+                                name="senha"
+                                id="isenha"
+                                placeholder="Digite a sua senha (mín. 8 caracteres)"
+                                required
+                                minlength="8"
+                                autocomplete="new-password"
+                                aria-describedby="pwHelp pwStrength pwReqs"
+                            />
+                            <button
+                                type="button"
+                                class="toggle-pw"
+                                id="togglePw"
+                                aria-pressed="false"
+                                aria-label="Mostrar senha"
+                            >Mostrar</button>
+                        </div>
+
+                        <div id="pwHelp" class="muted help">Use ao menos 8 caracteres com mistura de letras, números e símbolos.</div>
+
+                        <div class="meter" aria-hidden="true"><span id="meterBar"></span></div>
+                        <div id="pwStrength" class="help" aria-live="polite"></div>
+
+                        <div id="pwReqs" class="reqs"></div>
+                            <div class="req" id="req-length"><span class="dot" aria-hidden="true"></span>8+ caracteres</div>
+                            <div class="req" id="req-upper"><span class="dot" aria-hidden="true"></span>Letra maiúscula</div>
+                            <div class="req" id="req-number"><span class="dot" aria-hidden="true"></span>Número</div>
+                            <div class="req" id="req-symbol"><span class="dot" aria-hidden="true"></span>Símbolo</div>
+                        </div>
+                        <div id="pwError" class="error" aria-live="polite"></div>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <input id="submitBtn" type="submit" value="Enviar" class="btn-primary" />
+                    <input type="reset" value="Limpar" class="btn-secondary" />
+                </div>
+            </fieldset>
+        </form>
+
+        <footer class="muted" style="margin-top:1rem">Formulário melhorado — validação e usabilidade</footer>
+    </div>
+
+    <script>
+        // Elementos
+        const form = document.getElementById('form');
+        const pw = document.getElementById('isenha');
+        const toggle = document.getElementById('togglePw');
+        const meterBar = document.getElementById('meterBar');
+        const strengthText = document.getElementById('pwStrength');
+        const submitBtn = document.getElementById('submitBtn');
+        const user = document.getElementById('iuso');
+        const userError = document.getElementById('userError');
+        const pwError = document.getElementById('pwError');
+
+        const reqs = {
+            length: document.getElementById('req-length'),
+            upper: document.getElementById('req-upper'),
+            number: document.getElementById('req-number'),
+            symbol: document.getElementById('req-symbol')
+        };
+
+        // Toggle visibilidade da senha (acessível) - CORRIGIDO
+        toggle.addEventListener('click', () => {
+            const willShow = pw.type === 'password'; // se estava escondida, vamos mostrar
+            pw.type = willShow ? 'text' : 'password';
+            toggle.textContent = willShow ? 'Ocultar' : 'Mostrar';
+            toggle.setAttribute('aria-pressed', String(willShow));
+            toggle.setAttribute('aria-label', willShow ? 'Ocultar senha' : 'Mostrar senha');
+            pw.focus();
+        });
+
+        // Avaliação simples da senha — pontua por requisito e por comprimento
+        function evaluatePassword(val) {
+            const checks = {
+                length: val.length >= 8,
+                upper: /[A-Z]/.test(val),
+                number: /[0-9]/.test(val),
+                symbol: /[^A-Za-z0-9]/.test(val)
+            };
+            // peso maior para comprimento
+            let score = (checks.length ? 2 : 0) + (checks.upper ? 1 : 0) + (checks.number ? 1 : 0) + (checks.symbol ? 1 : 0);
+            const max = 5;
+            const pct = Math.round((score / max) * 100);
+            return {checks, score, pct};
+        }
+
+        // Atualiza UI da senha conforme o usuário digita
+        pw.addEventListener('input', () => {
+            const val = pw.value;
+            const {checks, pct} = evaluatePassword(val);
+
+            // atualizar meter
+            meterBar.style.width = pct + '%';
+            if (pct < 40) {
+                meterBar.style.background = 'linear-gradient(90deg,#ef4444,#f97316)';
+                strengthText.textContent = val ? 'Força: Fraca' : '';
+            } else if (pct < 75) {
+                meterBar.style.background = 'linear-gradient(90deg,#f97316,#f59e0b)';
+                strengthText.textContent = 'Força: Média';
+            } else {
+                meterBar.style.background = 'linear-gradient(90deg,#10b981,#06b6d4)';
+                strengthText.textContent = 'Força: Forte';
+            }
+
+            // atualizar checklist
+            reqs.length.classList.toggle('ok', checks.length);
+            reqs.upper.classList.toggle('ok', checks.upper);
+            reqs.number.classList.toggle('ok', checks.number);
+            reqs.symbol.classList.toggle('ok', checks.symbol);
+
+            // mensagem de erro leve (não impede envio se outros requisitos forem ok)
+            pwError.textContent = '';
+            if (val && val.length < 8) pwError.textContent = 'A senha precisa ter pelo menos 8 caracteres.';
+            updateSubmitState();
+        });
+
+        // Validação customizada do usuário (mensagens amigáveis)
+        user.addEventListener('input', () => {
+            userError.textContent = '';
+            if (user.validity.valueMissing) {
+                userError.textContent = 'O nome de usuário é obrigatório.';
+            } else if (user.validity.tooShort) {
+                userError.textContent = 'Use pelo menos 5 caracteres.';
+            } else if (user.validity.patternMismatch) {
+                userError.textContent = 'Use apenas letras, números e underscore (_).';
+            }
+            updateSubmitState();
+        });
+
+        // Atualiza estado do botão enviar baseado na validade do formulário
+        function updateSubmitState() {
+            // validação leve no cliente: exige senha >=8 e pattern do usuário válido
+            const pwdOk = pw.value.length >= 8;
+            const userOk = user.checkValidity();
+            submitBtn.disabled = !(pwdOk && userOk);
+        }
+
+        // Inicializa estado
+        updateSubmitState();
+
+        // Intercepta submit para exibir mensagens nativas se inválido e evitar envio acidental
+        form.addEventListener('submit', (e) => {
+            // permite que o servidor processe quando válido; caso contrário mostra mensagens.
+            if (!form.checkValidity()) {
+                e.preventDefault();
+                // Força o navegador a mostrar mensagens nativas para campos inválidos
+                form.reportValidity();
+            } else {
+                // opcional: mostrar feedback rápido antes do envio (não impede envio)
+                submitBtn.value = 'Enviando...';
+                submitBtn.disabled = true;
+            }
+        });
+
+        // Limpa mensagens ao resetar
+        form.addEventListener('reset', () => {
+            setTimeout(() => {
+                userError.textContent = '';
+                pwError.textContent = '';
+                strengthText.textContent = '';
+                meterBar.style.width = '0%';
+                Object.values(reqs).forEach(r => r.classList.remove('ok'));
+                submitBtn.disabled = false;
+            }, 0);
+        });
+
+        // melhorar acessibilidade: foco visível apenas ao navegar por teclado
+        (function manageFocusVisible() {
+            let hadKeyboardEvent = false;
+            window.addEventListener('keydown', (e) => { if (e.key === 'Tab') hadKeyboardEvent = true; });
+            window.addEventListener('mousedown', () => { hadKeyboardEvent = false; });
+            document.addEventListener('focusin', (e) => {
+                if (!hadKeyboardEvent) e.target.classList.remove('focus-visible');
+                else e.target.classList.add('focus-visible');
+            }, true);
+        })();
+    </script>
+</body>
+</html>

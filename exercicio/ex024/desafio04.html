@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--
+    Autor: Ricardo
+    Arquivo: desafio04.html
+    Descrição: Tabela de disciplinas, notas e médias por área de estudo.
+    Data: 2024
+-->
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 04 - Tabela de Notas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 500px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        th {
+            background-color: rgb(129, 129, 129);
+            color: white;
+            font-size: 1.1em;
+            letter-spacing: 1px;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 10px;
+        }
+
+        .area {
+            font-weight: bold;
+        }
+        .media {
+            background-color:rgb(129, 129, 129) ;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Desafio: Tabela de Notas por Área</h1>
+    <table>
+        <tr>
+            <th rowspan="2">Área</th>
+            <th rowspan="2">Disciplina</th>
+            <th colspan="2">Notas</th>
+            <th rowspan="2">Média</th>
+        </tr>
+        <tr>
+            <th>Nota 1</th>
+            <th>Nota 2</th>
+        </tr>
+        <tr>
+            <td class="area" rowspan="4">Exatas</td>
+            <td>Matemática</td>
+            <td>0.0</td>
+            <td>0.0</td>
+            <td>0.0</td>
+        </tr>
+        <tr>
+            <td>Física</td>
+            <td>0.0</td>
+            <td>0.0</td>
+            <td>0.0</td>
+        </tr>
+        <tr>
+            <td>Química</td>
+            <td>0.0</td>
+            <td>0.0</td>
+            <td>0.0</td>
+        </tr>
+        <tr>
+            <td>Biologia</td>
+            <td>0.0</td>
+            <td>0.0</td>
+            <td>0.0</td>
+        </tr>
+        <tr class="media">
+            <td colspan="4">Média de Exatas</td>
+            <td>0.0</td>
+        </tr>
+        <tr>
+            <td class="area" rowspan="2">Humanas</td>
+            <td>História</td>
+            <td>0.0</td>
+            <td>0.0</td>
+            <td>0.0</td>
+        </tr>
+        <tr>
+            <td>Geografia</td>
+            <td>0.0</td>
+            <td>0.0</td>
+            <td>0.0</td>
+        </tr>
+        <tr class="media" id="humanas">
+            <td colspan="4">Média de Humanas</td>
+            <td>0.0</td>
+        </tr>
+    </table>
+</body>
+</html>

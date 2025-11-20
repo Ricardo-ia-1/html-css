@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grouping tags</title>
+    <style>
+        /* Estilos básicos para o site */
+        h2 {
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+
+            }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+
+        }
+        main {
+            padding: 20px;
+            margin: 0;
+            border-radius: 20px;
+        }
+        main > section {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 1px 2px 2px rgba(2, 46, 77, 0.211);
+        }
+       #assuntos {
+            background-color: #737a7b62;
+        }
+        section  {
+            background-color: #333;
+        }
+        article {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: lightgray;
+            bottom: 0;
+            border-radius: 10px;
+
+        }
+        article > aside {
+            display: block;
+            padding: 10px;
+            margin: 0;
+            font-style: italic;
+            text-align: right;
+        }
+        p {
+            text-align: justify;
+            font-family: Georgia, serif;
+            text-indent: 10px;
+        }
+        footer {
+            color: rgb(244, 8, 8);
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+        }
+  div#bola {
+            width: 50px;
+            height: 50px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+            bottom: 20px;
+            right: 20px;
+            box-shadow: 0 2px 5px rgba(0, 217, 255, 0.3);
+            cursor: pointer;
+            position: fixed;
+            z-index: 1000;
+        }
+        div#bola:hover {
+            background-color: #45a049;
+            box-shadow: 0 4px 8px rgba(0, 217, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1> Meu site</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="assuntos">
+            <h2>Assuntos do site</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad suscipit, qui inventore corporis pariatur quos consequuntur in ducimus beatae, nihil incidunt accusamus perspiciatis! Eveniet nobis explicabo laudantium? Facere, voluptate explicabo.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, unde ipsa. Delectus quisquam, in facilis, nobis optio veniam eaque fugiat placeat dolorum ab iure vero nihil a quod dolorem. Doloribus.</p>
+
+        </section>
+        <section id="noticias">
+            <article>
+                <h2> Noticias sobre o Brasil</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, eum, quaerat necessitatibus laudantium est debitis quo nihil aliquid quae, sint ducimus? Dolore tempora perspiciatis qui rem non velit inventore veniam.</p>
+                <aside>Artigo escrito por Ricardo Ramos</aside>
+
+            </article>
+            <article>
+                <h2>Queimadas no Brasil</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab incidunt soluta dolor dignissimos fugiat necessitatibus animi ullam ducimus? Voluptatem corporis, optio earum natus perspiciatis ullam sunt distinctio repellat error et.</p> 
+                
+            </article>
+    </main>
+    <footer> Desenvolvido por Ricardo Ramos.</footer>
+    <div id="bola"></div>
+    <script>
+        document.getElementById('bola').addEventListener('click', function() {
+            alert('Bola clicada!');
+            // Aqui você pode adicionar a lógica que deseja executar quando a bola for clicada
+        });
+        function handleTouch(event) {
+            const touch = event.touches ? event.touches[0] : event;
+            const word = document.createElement('span');
+            word.className = 'touch-word';
+            word.textContent = 'Amor';
+            word.style.left = `${touch.clientX}px`;
+            word.style.top = `${touch.clientY}px`;
+            document.body.appendChild(word);
+
+            setTimeout(() => {
+                word.remove();
+            }, 2000);
+        }
+        document.addEventListener('touchstart', handleTouch);
+        document.addEventListener('mousedown', handleTouch);
+</body>
+</html>

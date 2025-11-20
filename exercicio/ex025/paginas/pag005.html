@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #6fff004e;
+            margin: 40px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        a {
+            text-decoration: none;
+            color: blue;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        a:hover {
+            color: darkblue;
+        }
+        #saída {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <a href="#" onclick="clicou()">CLique em mim.</a>
+    <div id="saída"></div>
+    <script>
+        function clicou(){
+           s = window.document.getElementById('saída')
+           s.innerHTML += "<p>Obrigado por clicar.</p>";
+        }
+    </script>
+</body>
+</html>

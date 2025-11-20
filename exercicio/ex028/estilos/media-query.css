@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+/* Media Query para telas maiores que 600px
+Pequenas telas: até 600px
+celular: 600px até 768px
+tablets: 768px até 1024px
+Desktops: acima de 1024px
+*/
+
+@media screen and (min-widht: 768px) {
+  
+    menu {
+        display: block;
+    }
+
+    menu > ul > li {
+        display: inline-block;
+    }
+
+    main {
+        width: 768px;
+    }
+}

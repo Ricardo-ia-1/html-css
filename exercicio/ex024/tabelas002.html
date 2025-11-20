@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        table {
+            width: 400px;
+            height: 400px;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Uso de tabelass grandes</h1>
+    <!--
+    HIERARQUIA PARA TABELAS GRANDES (complexas)
+    TABLE: tabela
+        THEAD: cabeçalho da tabela
+        TBODY: corpo da tabela
+        TFOOT: rodapé da tabela
+        TR: linha da tabela
+        TH: cabeçalho da tabela
+        TD: célula da tabela
+
+        THEAD: TR, TD, TH
+        TBODY: TR, TD, TH
+        TFOOT: TR, TD, TH
+    
+    -->
+
+    <table>
+        <caption>
+            Lista de Pessoas
+            <span style="font-size: 0.8em;">Exemplo de tabela com cabeçalho, corpo e rodapé</span>
+        </caption>
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Idade</th>
+                <th scope="col" style="width: 50px;">Cidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>João</td>
+                <td>25</td>
+                <td><a href="#">São Paulo</a></td>
+            </tr>
+            <tr>
+                <td>Maria</td>
+                <td>30</td>
+                <td>Rio de Janeiro</td>
+            </tr>
+            <tr>
+                <td>Ana</td>
+                <td>22</td>
+                <td>Belo Horizonte</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Total de pessoas: 3</td>
+            </tr>
+</body>
+</html>

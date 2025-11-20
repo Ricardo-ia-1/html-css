@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+.Lov__You {
+    color: #ff69b4;
+    justify-content: center;
+    display: flex;
+    font-family: "My Love";
+    min-height: 100vh;
+    padding: 1rem;
+    margin-top: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulario</title>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1> Meu primeiro formulario</h1>
+    <form action="recebe_dados.php" method="post"
+    autocomplete="off">
+        <p><label for="inome">Nome:</label>
+            <input type="text" name="nome" id="inome" placeholder="Digite seu nome" required minlength="8" maxlength="15"></p>
+        <p><label for="isobrenome">Sobrenome: </label>
+             <input type="text" name="sobrenome" id="isobrenome" placeholder="Digite seu sobrenome" required minlength="8" autocomplete="current-password"></p>
+        <p><label for="iidade">Idade:</label>
+            <input type="number" name="idade" id="iidade" placeholder="Digite sua idade"></p>
+        <p>
+            <input type="submit" value="enviar"></p>
+    </form>
+</body>
+</html>

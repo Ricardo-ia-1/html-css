@@ -1,0 +1,38 @@
+@charset "UTF-8";
+/* CSS Document */
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-image: linear-gradient(to right, #E3D4FF, #AC80FF);
+    background-attachment: fixed;
+    background-size: cover;
+    text-align: left;
+}
+
+main{
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 2px 4px 8px rgba(42, 24, 73, 0.707);
+    padding: 10px;
+    max-width: 600px;
+    margin: auto;
+    
+}
+h1{
+    text-align: center;
+    color: #301269;
+    text-shadow: 1px 1px 2px #301269;
+}
+h2{
+    color: #340094;
+    text-shadow: 1px 1px 0px #340094;
+}
+p{
+    text-align: justify;
+    text-indent: 30px;
+    color: #301269;
+    line-height: 1.6;
+}

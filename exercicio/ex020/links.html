@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links</title>
+    <style>
+
+        /*
+            #  = id
+            .  = classe
+            :  = pseudo-classe
+            :: = pseudo-elemento
+            >  = children
+            ::before = pseudo-elemento antes do conteúdo
+            ::after = pseudo-elemento após o conteúdo
+            :hover = pseudo-classe que aplica estilos quando o mouse passa sobre o elemento
+            :visited = pseudo-classe que aplica estilos a links visitados
+            :active = pseudo-classe que aplica estilos quando o link é clicado
+            :link = pseudo-classe que aplica estilos a links não visitados
+            :focus = pseudo-classe que aplica estilos quando o elemento recebe foco
+        */
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        a {
+            color: blue;
+            text-decoration: none; /* Remove o sublinhado */
+        }
+
+        a:visited {
+            color: purple; /* Muda a cor do link visitado */
+        }
+
+        a:hover {
+            color: red; /* Muda a cor do link ao passar o mouse */
+            text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+        }
+
+        a:active {
+            color: green; /* Muda a cor do link quando clicado */
+        }
+        
+        .especial::before {
+            content: "🔗 "; /* Adiciona um ícone antes do link */
+        }
+        .especial {
+            color: orange; /* Muda a cor do link especial */
+            font-weight: bold; /* Deixa o link especial em negrito */
+        }
+        a::after {
+            content: " (abrirá em nova aba)"; /* Adiciona texto após o link */
+            font-style: italic; /* Estilo itálico para o texto adicional */
+        }
+    </style>
+</head>
+<body>
+    <h1>Personalizando &lt; links &gt;</h1>
+    <ul>
+        <li><a href="https://youtube.com/cursoemvideo" target="_blank">canal do youtube</a></li>
+        <li><a href="https://www.instagram.com/ricardo_ramos_231" target="_blank" class="especial">Instagram</a></li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>te amo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="love-message">
+        <h1>🌹 Para o Amor da Minha Vida 🌹</h1>
+        <p>
+            <span id="typed-text"></span><span id="cursor">|</span>
+        </p>
+        <div class="hearts">
+            <span>❤️</span>
+            <span>💗</span>
+            <span>💕</span>
+            <span>💞</span>
+            <span>💖</span>
+        </div>
+        <canvas id="floating-hearts"></canvas>
+        </div>
+        <script>
+        // Efeito de digitação
+        const message = "Você é a poesia que faltava nos meus dias. Com você, cada momento se torna único, cada silêncio é confortável, cada sorriso é motivo. Obrigado por ser meu abrigo, minha inspiração e meu amor. Te amo além das palavras.";
+        let i = 0;
+        function typeWriter() {
+            if (i < message.length) {
+                document.getElementById("typed-text").innerHTML += message.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+        window.onload = typeWriter;
+
+        // Efeito especial ao toque/click: surge uma palavra carinhosa onde tocar/clicar
+        const palavras = [
+            "Amor", "Carinho", "Saudade", "Sorriso", "Abraço", "Cuidado", "Doçura", "Luz", "Paz", "Alegria", "Encanto", "Ternura"
+        ];
+        function spawnTouchWord(x, y) {
+            const word = document.createElement('div');
+            word.className = 'touch-word';
+            word.textContent = palavras[Math.floor(Math.random() * palavras.length)];
+            word.style.left = (x - 30) + 'px';
+            word.style.top = (y - 30) + 'px';
+            document.body.appendChild(word);
+            setTimeout(() => {
+                word.style.transform = 'scale(1.4) translateY(-40px)';
+                word.style.opacity = '0';
+            }, 10);
+            setTimeout(() => {
+                word.remove();
+            }, 900);
+        }
+
+        function handleTouch(e) {
+            let touches = e.touches ? e.touches : [e];
+            for (let t of touches) {
+                spawnTouchWord(t.clientX, t.clientY);
+            }
+        }
+        document.addEventListener('touchstart', handleTouch);
+        document.addEventListener('mousedown', handleTouch);
+        </script>
+        <style>
+        body {
+            background: linear-gradient(135deg, #ffe0ec 0%, #f9c6e0 100%);
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .love-message {
+            max-width: 600px;
+            margin: 60px auto 0 auto;
+            background: rgba(255,255,255,0.85);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(255,0,100,0.15);
+            padding: 40px 30px 30px 30px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .love-message h1 {
+            color: #e75480;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-family: 'Brush Script MT', cursive, sans-serif;
+        }
+        .love-message p {
+            font-size: 1.3em;
+            color: #b03060;
+            min-height: 90px;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+        .hearts {
+            font-size: 2em;
+            margin-top: 10px;
+            animation: pulse 2s infinite;
+            display: none; /* Esconde os corações */
+        }
+        #cursor {
+            display: inline-block;
+            width: 1ch;
+            animation: blink 1s steps(1) infinite;
+            color: #e75480;
+            font-weight: bold;
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1;}
+            51%, 100% { opacity: 0;}
+        }
+        .touch-word {
+            position: fixed;
+            min-width: 60px;
+            padding: 6px 14px;
+            left: 0;
+            top: 0;
+            pointer-events: none;
+            z-index: 9999;
+            background: #fff6fa;
+            border-radius: 18px;
+            border: 1.5px solid #e75480;
+            color: #e75480;
+            font-size: 1.2em;
+            font-family: 'Brush Script MT', cursive, sans-serif;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(231,84,128,0.10);
+            opacity: 1;
+            transform: scale(0.7) translateY(0);
+            transition: transform 0.7s cubic-bezier(.4,1.6,.4,1), opacity 0.7s;
+            will-change: transform, opacity;
+        }
+        </style>
+</body>
+</html>
